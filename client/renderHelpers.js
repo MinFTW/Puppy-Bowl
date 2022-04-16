@@ -22,7 +22,7 @@ export const renderAllPlayers = (playerList) => {
         </div>
         <img src="${pup.imageUrl}" alt="photo of ${pup.name} the puppy">
         <button class="detail-button" data-id=${pup.id}>See details</button>
-        <button class="delete-button" data-id=${pup.id}>Remove player from the roster</button>
+        <button class="delete-button" data-id=${pup.id}>Remove player</button>
       </div>
     `;
     playerContainerHTML += pupHTML;
@@ -47,7 +47,10 @@ export const renderAllPlayers = (playerList) => {
   for (let i = 0; i < deleteButtons.length; i++) {
     const button = deleteButtons[i];
     button.addEventListener('click', async () => {
-      await removePlayer(button.dataset.id);
+      let choice = confirm('Are you sure you want to remove player?');
+      if (choice) await removePlayer(button.dataset.id);
+      if (!choice) return false;
+
       const players = await fetchAllPlayers();
       renderAllPlayers(players);
     });
@@ -86,12 +89,16 @@ export const renderSinglePlayer = (playerObj) => {
 
 export const renderNewPlayerForm = () => {
   let formHTML = `
+    <h1>Puppy Bowl</h1>
+    <h4>Add New Player</h4>
     <form>
       <label for="name">Name:</label>
       <input type="text" name="name" />
       <label for="breed">Breed:</label>
       <input type="text" name="breed" />
-      <button type="submit">Submit</button>
+      <label for="image">Add Image:</label>
+      <input type="url" name="image" placeholder='url' value='https://bit.ly/3rvvP7D'>
+      <button type="submit" id="submitButton">Submit</button>
     </form>
   `;
   newPlayerFormContainer.innerHTML = formHTML;
@@ -102,8 +109,9 @@ export const renderNewPlayerForm = () => {
 
     let playerData = {
       name: form.elements.name.value,
-      breed: form.elements.breed.value
-    }
+      breed: form.elements.breed.value,
+      imageUrl: form.elements.image.value
+    }  
 
     await addNewPlayer(playerData);
     const players = await fetchAllPlayers();
@@ -111,5 +119,6 @@ export const renderNewPlayerForm = () => {
 
     form.elements.name.value = ``;
     form.elements.breed.value = ``;
+    form.elements.image.value = `https://bit.ly/3rvvP7D`;
   });
 };

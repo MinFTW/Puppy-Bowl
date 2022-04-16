@@ -20,6 +20,7 @@
   width: 100%;
   border-radius: 10px;
   margin: 10px 0px;
+  height: 100%;
 }
 
 .header-info {
@@ -34,7 +35,7 @@
 }
 
 .pup-title {
-  font-size: x-large;
+  font-size: 1.3rem;
 }
 
 .pup-number {
@@ -54,4 +55,66 @@
 
 .single-player-view > p {
   margin: 10px 0px 0px 0px;
+}
+
+/* EXTRA CSS */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+#new-player-form {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+  padding: 5px;
+}
+
+h1 {
+  margin-bottom: 12px;
+  text-decoration: underline;
+}
+
+h4 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+#submitButton {
+  color: white;
+  font-size: 1rem;
+  background-color: dodgerblue;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+#submitButton:hover {
+  box-shadow: 3px 3px 3px lightgray;
+}
+
+.detail-button {
+  padding: 2px;
+}
+
+.delete-button {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-self: center;
+  background-color: crimson;
+  color: white;
+  margin-top: 5px;
+  padding: 2px;
+  border-radius: 10px;
+  width: 80%;
+}
+
+.delete-button:hover {
+  box-shadow: 2px 2px 2px black;
 }
