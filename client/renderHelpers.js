@@ -65,6 +65,12 @@ export const renderSinglePlayer = (playerObj) => {
   `;
 
   playerContainer.innerHTML = pupHTML;
+
+  let seeAllButton = document.getElementById(`see-all`);
+  seeAllButton.addEventListener(`click`, async () => {
+    const players = await fetchAllPlayers();
+    renderAllPlayers(players);
+  })
 };
 
 export const renderNewPlayerForm = () => {
@@ -81,8 +87,6 @@ export const renderNewPlayerForm = () => {
 
   let form = document.querySelector('#new-player-form > form');
   form.addEventListener('submit', async (event) => {
-    /*
-      YOUR CODE HERE
-    */
+    event.preventDefault();
   });
 };
