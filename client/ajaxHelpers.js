@@ -44,5 +44,14 @@ export const addNewPlayer = async (playerObj) => {
 };
 
 export const removePlayer = async (playerId) => {
-    
+    try {
+        const response = await fetch(`${APIURL}/players/${playerId}`, {
+            method: `DELETE`,
+        })
+        const result = await response.json();
+        if (result.error) throw result.error;
+        return;
+    } catch (err) {
+        console.error(`Uh oh, trouble deleting player!`, err);
+    }
 };
