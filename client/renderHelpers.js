@@ -1,4 +1,4 @@
-import { addNewPlayer, fetchAllPlayers, fetchSinglePlayer, removePlayer } from './ajaxHelpers';
+import { addNewPlayer, fetchAllPlayers, fetchSinglePlayer, removePlayer, showTeammates } from './ajaxHelpers';
 
 const playerContainer = document.getElementById('all-players-container');
 const newPlayerFormContainer = document.getElementById('new-player-form');
@@ -89,7 +89,7 @@ export const renderSinglePlayer = (playerObj) => {
 
 export const renderNewPlayerForm = () => {
   let formHTML = `
-    <h1>Puppy Bowl</h1>
+    <h1>Puppy Bowl 🏈 </h1> 
     <h4>Add New Player</h4>
     <form>
       <label for="name">Name:</label>
@@ -97,7 +97,7 @@ export const renderNewPlayerForm = () => {
       <label for="breed">Breed:</label>
       <input type="text" name="breed" />
       <label for="image">Add Image:</label>
-      <input type="url" name="image" placeholder='url' value='https://bit.ly/3rvvP7D'>
+      <input type="url" name="image" placeholder='url'>
       <button type="submit" id="submitButton">Submit</button>
     </form>
   `;
@@ -110,7 +110,7 @@ export const renderNewPlayerForm = () => {
     let playerData = {
       name: form.elements.name.value,
       breed: form.elements.breed.value,
-      imageUrl: form.elements.image.value
+      imageUrl: form.elements.image.value === '' ? 'https://bit.ly/3rvvP7D' : form.elements.image.value
     }  
 
     await addNewPlayer(playerData);
@@ -119,6 +119,6 @@ export const renderNewPlayerForm = () => {
 
     form.elements.name.value = ``;
     form.elements.breed.value = ``;
-    form.elements.image.value = `https://bit.ly/3rvvP7D`;
+    form.elements.image.value = ``;
   });
 };

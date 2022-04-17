@@ -55,3 +55,16 @@ export const removePlayer = async (playerId) => {
         console.error(`Uh oh, trouble deleting player!`, err);
     }
 };
+
+
+// TEST FUNCTION
+export const showTeammates = async () => {
+    try {
+        const response = await fetch(`${APIURL}/teams`);
+        const result = await response.json();
+        if (result.error) throw result.error;
+        return result.data.teams;
+    } catch (err) {
+        console.error(`Uh oh, trouble fetching teams!`, err);
+    }
+}
