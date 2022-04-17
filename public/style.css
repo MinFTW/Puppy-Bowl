@@ -77,20 +77,35 @@
 }
 
 h1 {
+  margin-bottom: 16px;
+  font-size: 36px;
+}
+
+fieldset {
+  width: 700px;
+  border: 1px solid #dcdcdc;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
   margin-bottom: 12px;
 }
 
-h4 {
-  font-size: 18px;
-  margin-bottom: 5px;
+legend {
+  /* background-color: #efefef; */
+  border: 1px solid #dcdcdc;
+  border-radius: 10px;
+  padding: 10px 20px;
+  text-align: left;
+  text-transform: uppercase;
 }
 
 #submitButton {
   color: white;
-  font-size: 1rem;
+  font-size: 1.4rem;
   background-color: dodgerblue;
   border-radius: 10px;
   padding: 5px;
+  margin-top: 16px;
 }
 
 #submitButton:hover {

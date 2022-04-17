@@ -90,15 +90,17 @@ export const renderSinglePlayer = (playerObj) => {
 export const renderNewPlayerForm = () => {
   let formHTML = `
     <h1>Puppy Bowl 🏈 </h1> 
-    <h4>Add New Player</h4>
     <form>
-      <label for="name">Name:</label>
-      <input type="text" name="name" />
-      <label for="breed">Breed:</label>
-      <input type="text" name="breed" />
-      <label for="image">Add Image:</label>
-      <input type="url" name="image" placeholder='url'>
-      <button type="submit" id="submitButton">Submit</button>
+      <fieldset>
+        <legend>Add New Player</legend>
+        <label for="name">Name:</label>
+        <input type="text" name="name" />
+        <label for="breed">Breed:</label>
+        <input type="text" name="breed" />
+        <label for="image">Add Image:</label>
+        <input type="url" name="image" placeholder='url'>
+        <button type="submit" id="submitButton">Submit</button>
+      </fieldset>  
     </form>
   `;
   newPlayerFormContainer.innerHTML = formHTML;
