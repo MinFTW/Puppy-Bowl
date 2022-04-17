@@ -71,14 +71,11 @@
   display: flex;
   flex-flow: column wrap;
   align-items: center;
-  justify-content: center;
-  margin: 5px;
-  padding: 5px;
 }
 
 h1 {
-  margin-bottom: 16px;
   font-size: 36px;
+  margin-bottom: 16px;
 }
 
 fieldset {
@@ -87,22 +84,20 @@ fieldset {
   border-radius: 10px;
   padding: 20px;
   text-align: center;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
 legend {
-  /* background-color: #efefef; */
   border: 1px solid #dcdcdc;
   border-radius: 10px;
   padding: 10px 20px;
-  text-align: left;
   text-transform: uppercase;
 }
 
 #submitButton {
   color: white;
-  font-size: 1.4rem;
   background-color: dodgerblue;
+  font-size: 1.4rem;
   border-radius: 10px;
   padding: 5px;
   margin-top: 16px;
