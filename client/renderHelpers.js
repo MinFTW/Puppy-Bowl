@@ -97,7 +97,7 @@ export const renderNewPlayerForm = () => {
         <input type="text" name="name" />
         <label for="breed">Breed:</label>
         <input type="text" name="breed" />
-        <label for="image">Add Image:</label>
+        <label for="image">Image:</label>
         <input type="url" name="image" placeholder='url'>
         <button type="submit" id="submitButton">Submit</button>
       </fieldset>  
