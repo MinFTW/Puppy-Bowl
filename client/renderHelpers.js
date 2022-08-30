@@ -1,16 +1,19 @@
-import { addNewPlayer, fetchAllPlayers, fetchSinglePlayer, removePlayer } from './ajaxHelpers';
+import {
+  addNewPlayer,
+  fetchAllPlayers,
+  fetchSinglePlayer,
+  removePlayer,
+} from './ajaxHelpers';
 
 const playerContainer = document.getElementById('all-players-container');
 const newPlayerFormContainer = document.getElementById('new-player-form');
 
 export const renderAllPlayers = (playerList) => {
-  // First check if we have any data before trying to render it!
   if (!playerList || !playerList.length) {
     playerContainer.innerHTML = '<h3>No players to display!</h3>';
     return;
   }
 
-  // Loop through the list of players, and construct some HTML to display each one
   let playerContainerHTML = '';
   for (let i = 0; i < playerList.length; i++) {
     const pup = playerList[i];
@@ -28,12 +31,8 @@ export const renderAllPlayers = (playerList) => {
     playerContainerHTML += pupHTML;
   }
 
-  // After looping, fill the `playerContainer` div with the HTML we constructed above
   playerContainer.innerHTML = playerContainerHTML;
 
-  // Now that the HTML for all players has been added to the DOM,
-  // we want to grab those "See details" buttons on each player
-  // and attach a click handler to each one
   let detailButtons = [...document.getElementsByClassName('detail-button')];
   for (let i = 0; i < detailButtons.length; i++) {
     const button = detailButtons[i];
@@ -84,7 +83,7 @@ export const renderSinglePlayer = (playerObj) => {
   seeAllButton.addEventListener(`click`, async () => {
     const players = await fetchAllPlayers();
     renderAllPlayers(players);
-  })
+  });
 };
 
 export const renderNewPlayerForm = () => {
@@ -112,8 +111,11 @@ export const renderNewPlayerForm = () => {
     let playerData = {
       name: form.elements.name.value,
       breed: form.elements.breed.value,
-      imageUrl: form.elements.image.value === '' ? 'https://bit.ly/3rvvP7D' : form.elements.image.value
-    }  
+      imageUrl:
+        form.elements.image.value === ''
+          ? 'https://bit.ly/3rvvP7D'
+          : form.elements.image.value,
+    };
 
     await addNewPlayer(playerData);
     const players = await fetchAllPlayers();
